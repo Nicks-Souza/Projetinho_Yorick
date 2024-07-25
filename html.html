@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yorick boneco do lol</title>
+
+    <!--css-->
+    <link rel="stylesheet" href="./css/css.css" />
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <div class="logo">
+                <img src="/fotos/logo.png" alt="logotipo do site">
+            </div>
+            <div class="botao">
+                <a class="historia" href="#sec1">História</a>
+                <a class="habilidades" href="#sec2">Habilidades</a>
+                <a class="eu" href="#sec3">Sobre mim</a>
+                <a class="contato1" href="#sec3">Contato</a>
+            </div>
+        </nav>
+        <div class="sec1" id="sec1">
+            <div class="background-image">
+                <img src="./fotos/yorick.gif" alt="Gif do yorick" />
+                <div class="caption">
+                    <h5>O Pastor Das Almas</h5>
+                    <h1>Yorick</h1>
+                    <p>
+                        Último sobrevivente de uma ordem religiosa há muito esquecida,
+                        Yorick é ao mesmo tempo abençoado e amaldiçoado pelo poder que
+                        exerce sobre os mortos. Preso nas Ilhas das Sombras, suas únicas
+                        companhias são os defuntos e espíritos atormentados que ele atrai
+                        para si. As ações monstruosas de Yorick mascaram seu nobre
+                        propósito: libertar sua terra da maldição da Ruína...
+                        <a href="https://universe.leagueoflegends.com/pt_BR/story/champion/yorick/" target="_blank" rel="noreferrer noopener">Clique aqui para conhecer mais da história dele</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--sec1-->
+
+        <div class="sec2" id="sec2">
+            <div class="abilities-wrapper">
+                <div class="abilities">
+                    <h2>HABILIDADES</h2>
+
+                    <div class="ability-list">
+                        <div id="p" class="ability-item active">
+                            <img src="./fotos/passiva.png" alt="" />
+                        </div>
+
+                        <div id="q" class="ability-item">
+                            <img src="./fotos/yorick-q.png" alt="">
+                        </div>
+
+                        <div id="w" class="ability-item">
+                            <img src="./fotos/yorick-w.png" alt="">
+                        </div>
+
+                        <div id="e" class="ability-item">
+                            <img src="./fotos/yorick-e.png" alt="">
+                        </div>
+
+                        <div id="r" class="ability-item">
+                            <img src="./fotos/yorick-r.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="ability-info">
+                        <p class="ability-info-type">PASSIVA</p>
+                        <h6 class="ability-info-name">Pastor de Almas</h6>
+                        <p class="ability-info-desc">
+                            A Horda Maldita: Yorick pode invocar Andarilhos da Névoa e
+                            atacar inimigos próximos.
+                        </p>
+                    </div>
+                </div><!--habilidades-->
+
+                <video id="video" muted loop autoplay>
+                    <source src="./videos/habilidade_passiva.webm" type="video/webm">
+                </video>
+            </div>
+            <!--tema-habilidades-->
+        </div>
+        <!--sec2-->
+
+        <h2 class="titulo">SOBRE MIM</h2>
+        <div class="sec3" id="sec3">
+            <div class="sobre-mim">
+                <img src="/fotos/eu.jpeg" alt="Foto do Nicolas" class="foto-minha">
+                <p>Um estudante de programação e fui um residente em T.I.C software no Serratec, tenho 18 anos, e estou em busca de aperfeiçoamento de técnicas a fim de me tornar sempre uma versão melhor de mim mesmo.</p>
+            </div><!--sobre-mim-->
+        </div><!--sec3-->
+        <div class="legenda">
+          <h3>Nicolas de Souza</h3>
+      </div><!--legenda-->
+        <div class="contato">
+            <a>Contatos: </a>
+            <a href="mailto:domitley@gmail.com"><img src="./fotos/gmail-svgrepo-com.svg" class="gmail"></a>
+            <a href="https://www.instagram.com/nicksmello_/" target="_blank"><img src="./fotos/instagram-1-svgrepo-com.svg" class="instagram"></a>
+            <a href="https://github.com/Nicks-Souza" target="_blank"><img src="./fotos/github-142-svgrepo-com.svg" class="github"></a>
+        </div><!--contato-->
+        
+    </div>
+    <!--container-->
+
+    <script>
+        const abilities = {
+            "p": ["habilidade_passiva", "PASSIVA", "Pastor de Almas", "A Horda Maldita: Yorick pode invocar Andarilhos da Névoa e atacar inimigos próximos."],
+            "q": ["habilidade_q", "Q", "Extrema-Unção", "Yorick causa dano adicional em seu próximo ataque, além de curar a si mesmo. Se o alvo for abatido, uma cova será aberta."],
+            "w": ["habilidade_w", "W", "Procissão Sombria", "Yorick invoca uma parede destrutível no local-alvo, que bloqueará a movimentação de inimigos."],
+            "e": ["habilidade_e", "E", "Névoa dos Lamentos", "Yorick arremessa um glóbulo de Névoa Negra que causa dano, redução de velocidade e marca inimigos."],
+            "r": ["habilidade_r", "R", "Louvor das Ilhas", "Yorick invoca a Donzela da Névoa, que faz com que seus ataques contra os alvos dela causem dano adicional. A Donzela também faz surgir Andarilhos automaticamente a partir de inimigos mortos."]
+        }
+
+        document.querySelectorAll(".ability-item").forEach((e) => {
+            e.addEventListener("click", () => {
+                document.querySelectorAll(".ability-item").forEach((ele) => {
+                    ele.classList.remove("active");
+                })
+
+                e.classList.add("active");
+
+                document.getElementById("video").style = "opacity: 0";
+                document.querySelector(".ability-info").style = "opacity: 0";
+
+                setTimeout(() => {
+                    document.getElementById("video").src = "./videos/" + abilities[e.id][0] + ".webm";
+                    document.querySelector(".ability-info-type").innerHTML = abilities[e.id][1];
+                    document.querySelector(".ability-info-name").innerHTML = abilities[e.id][2];
+                    document.querySelector(".ability-info-desc").innerHTML = abilities[e.id][3];
+
+                    document.getElementById("video").style = "opacity: 1";
+                    document.querySelector(".ability-info").style = "opacity: 1";
+                }, 250)
+            })
+        })
+    </script>
+</body>
+</html>
