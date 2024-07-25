@@ -4,8 +4,9 @@
 
 ```javascript
 const Yorick = {
-    Motivação: "Fiz Esse projetinho usando Html, css e javascript, para apenas ter
-    um site onde mostrasse as skills e a  história do meu personagem
+    Motivação: "Fiz Esse projetinho usando Html, css e javascript,
+    para apenas ter um site onde mostrasse as
+    skills e a  história do meu personagem
     favorito do league of legends!"
 };
 ```
